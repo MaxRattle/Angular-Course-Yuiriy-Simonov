@@ -22,3 +22,19 @@
 <!--=====================================================================-->
 <p [style.width.%]="50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, minima ad nihil incidunt voluptate doloribus eos nemo molestiae? Optio, deserunt.</p>
 <!-- Такой своеобразный синтаксис -->
+<!--=====================================================================-->
+<!--pipes-->
+<h1>lowercase pipe: {{title + 'lowercase для Angular: ' | lowercase}}</h1>
+<h1>uppercase pipe: {{title + 'uppercase для Angular: ' | uppercase}}</h1>
+<h1>titlecase pipe: {{title | titlecase}}</h1>
+<!--=====================================================================-->
+<p>json pipe (object): {{user | json}}</p>
+<p>slice without param pipe (object): {{"12345" | slice : 2}}</p>
+<p>slice with param pipe (object): {{"12345" | slice : 2 : 4}}</p>
+<!--=====================================================================-->
+<p>Date pipe: {{someDate | date}}</p>
+<!--надо чекать на других сайтах какие есть варианты вывода-->
+<p>Date pipe: {{someDate | date : 'YYYY-MM-DDThh:mm:ssTZD'}}</p>
+<!-- комбинация pipes -->
+<p>Date pipe: {{someDate | date : 'YYYY-MM-DDThh:mm:ssTZD' | slice : 0 : 7}}</p>
+

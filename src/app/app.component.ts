@@ -18,4 +18,6 @@ export class AppComponent {
     background: 'green',
   };
   cssClass = 'blue';
+
+  someDate = new Date();
 }
