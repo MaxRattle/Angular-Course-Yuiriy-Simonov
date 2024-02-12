@@ -47,4 +47,8 @@ export class AppComponent {
   setNewName(newName: string) {
     this.parentName = newName;
   }
+
+  toggler: boolean = true;
+  str: string = '';
+  arr: any[] = ['text', 123, true, ['abc', '369'], NaN];
 }
