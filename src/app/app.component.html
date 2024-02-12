@@ -75,9 +75,22 @@ name="name"
   <article class="some-css-class" style="background-color: rgb(3, 161, 240);">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article>
 </app-child> -->
 <!-- относится к ng-content-example -->
-<app-child>
+<!-- <app-child>
   <app-ng-content-example></app-ng-content-example>
   <app-ng-content-example></app-ng-content-example>
   <app-ng-content-example></app-ng-content-example>
   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat quas, facere illo voluptate sapiente suscipit praesentium aliquam necessitatibus pariatur iste in facilis, id mollitia qui asperiores deserunt eos labore reprehenderit.
-</app-child>
+</app-child> -->
+<!-- относится к ng-template урока -->
+<p>Первый параграф!</p>
+<ng-container *ngTemplateOutlet="test; context: {first: 'hello' ,$implicit: 'World', someText: '!!!'}">
+  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, temporibus!</span>
+</ng-container>
+<p>Третий параграф!</p>
+<ng-template #test let-item let-drink let-firstItem="first" let-someTextItem="someText">
+  <p>Второй параграф!</p>
+  <p>{{firstItem}}</p>
+  <p>{{item}}</p>
+  <p>{{drink}}</p>
+  <p>{{someTextItem}}</p>
+</ng-template>
