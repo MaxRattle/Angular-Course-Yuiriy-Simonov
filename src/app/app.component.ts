@@ -41,4 +41,10 @@ export class AppComponent {
     const target = event.target as HTMLInputElement;
     console.log('e', target.value);
   }
+
+  parentName: string = 'hello, world!!!';
+
+  setNewName(newName: string) {
+    this.parentName = newName;
+  }
 }

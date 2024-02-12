@@ -54,3 +54,16 @@
 <input type="text" (input)="checkCurrentValue($event)"
 (keydown.shift)="this.color = 'pink'"
 (keydown.shift.control.enter)="this.color = 'green'"/>
+<!--=====================================================================-->
+<!-- <app-child [childColor]="color"
+name="name"
+(nameChange)="setNewName($event)"></app-child> -->
+<!-- одностороннее связывание-->
+<!--=====================================================================-->
+<!-- двустороннее связывание -->
+<app-child [childColor]="color"
+[(name)]="parentName"
+(nameChange)="setNewName($event)"></app-child>
+<p>Parent's name component {{parentName}}</p>
+<button (click)="setNewName('name changed with parent')">Parent Button</button>
+
