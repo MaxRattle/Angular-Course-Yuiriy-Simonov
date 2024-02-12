@@ -20,4 +20,15 @@ export class AppComponent {
   cssClass = 'blue';
 
   someDate = new Date();
+
+  ageOfUsers = [{ age: 20 }, { age: 27 }, { age: 21 }];
+  constructor() {
+    setTimeout(() => {
+      this.ageOfUsers.push({ age: 1999 });
+      this.ageOfUsers.push({ age: -1999 });
+    }, 3000);
+  }
+  newArr = setTimeout(() => {
+    this.ageOfUsers = [...this.ageOfUsers, { age: -999 }];
+  }, 3000);
 }

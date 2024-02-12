@@ -17,10 +17,10 @@
 <p [class]="cssClass">Красный цвет class</p>
 <p [style]="inlineStyleGreen">Красный цвет style</p>
 <!--=====================================================================-->
-<p [style.width]="'50%'">lorem100*: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore possimus molestiae praesentium. Consequuntur natus commodi eius fuga, sunt neque quae dolor ipsum quod numquam iste expedita quos vero quis delectus dolores omnis maiores, minima amet deleniti mollitia veritatis nesciunt nihil nam. Consequuntur ea illum assumenda? Mollitia, molestias. Porro ipsam quisquam adipisci est! Quo totam, repudiandae, eos incidunt accusamus voluptatibus repellat eaque beatae ipsam magni quos quas similique illum repellendus mollitia animi placeat reprehenderit. Eveniet, voluptatum quisquam porro impedit beatae illum error tempora dolorem rerum molestiae fugit praesentium laboriosam necessitatibus at ratione ipsam doloremque? Incidunt necessitatibus dolorem ullam! Placeat, earum praesentium.</p>
+<p [style.width]="'50%'">Lorem50%: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore possimus molestiae praesentium. Consequuntur natus commodi eius fuga, sunt neque quae dolor ipsum quod numquam iste expedita quos vero quis delectus dolores omnis maiores, minima amet deleniti mollitia veritatis nesciunt nihil nam. Consequuntur ea illum assumenda? Mollitia, molestias. Porro ipsam quisquam adipisci est! Quo totam, repudiandae, eos incidunt accusamus voluptatibus repellat eaque beatae ipsam magni quos quas similique illum repellendus mollitia animi placeat reprehenderit. Eveniet, voluptatum quisquam porro impedit beatae illum error tempora dolorem rerum molestiae fugit praesentium laboriosam necessitatibus at ratione ipsam doloremque? Incidunt necessitatibus dolorem ullam! Placeat, earum praesentium.</p>
 <!-- Такой своеобразный синтаксис -->
 <!--=====================================================================-->
-<p [style.width.%]="50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, minima ad nihil incidunt voluptate doloribus eos nemo molestiae? Optio, deserunt.</p>
+<p [style.width.%]="50">Lorem50 Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, minima ad nihil incidunt voluptate doloribus eos nemo molestiae? Optio, deserunt.</p>
 <!-- Такой своеобразный синтаксис -->
 <!--=====================================================================-->
 <!--pipes-->
@@ -40,3 +40,6 @@
 <!--=====================================================================-->
 <!-- кастомный pipe -->
 <p>{{'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat cupiditate eum, dignissimos magni voluptates saepe beatae recusandae culpa facere quasi dolore laboriosam modi consequatur, nihil ipsum molestias eius ad ut nobis ea velit consectetur, ducimus tempora ratione. Nulla perferendis sapiente placeat facilis. Vero vel molestias molestiae sapiente aut dignissimos consequuntur, corrupti rem voluptas, doloremque incidunt veritatis. Molestias enim libero dolores sequi unde earum. Vero repudiandae mollitia enim explicabo consequuntur, cupiditate eius sint ipsam natus laborum esse totam eaque repellat itaque ut error. Numquam soluta doloremque, possimus blanditiis fuga sapiente impedit molestias nulla quod nostrum. Doloremque obcaecati debitis quidem quibusdam nulla commodi error. Impedit possimus nihil id consequatur laboriosam blanditiis, animi placeat ipsum nesciunt tempora sunt modi. Placeat, blanditiis! Id, repellat.' | pipesExample }}</p>
+<!--=====================================================================-->
+<!-- еще один кастомный pipe -->
+<p>{{ageOfUsers | sortData: 'age' | json}}</p>
