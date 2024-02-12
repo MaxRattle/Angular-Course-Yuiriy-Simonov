@@ -48,3 +48,6 @@ pipes-example - пользовательское название, pipe - наз
 @Input('childColor') childColorProps!: string;
 
 чтобы убрать ошибку нужно объявить @Input (добавить восклицательный знак): @Input('childColorProps') childColorProps!: string;
+-------
+Чтобы отобразить контент внутри app-componet тега, нужно в child добавить <ng-content>
+select видит только первый уровень вложенности

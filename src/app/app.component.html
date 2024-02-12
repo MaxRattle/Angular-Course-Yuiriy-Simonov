@@ -60,10 +60,24 @@ name="name"
 (nameChange)="setNewName($event)"></app-child> -->
 <!-- одностороннее связывание-->
 <!--=====================================================================-->
-<!-- двустороннее связывание -->
-<app-child [childColor]="color"
+<!-- двустороннее связывание относится в h2 child-comonent-->
+<!-- <app-child [childColor]="color"
 [(name)]="parentName"
 (nameChange)="setNewName($event)"></app-child>
 <p>Parent's name component {{parentName}}</p>
-<button (click)="setNewName('name changed with parent')">Parent Button</button>
-
+<button (click)="setNewName('name changed with parent')">Parent Button</button> -->
+<!--=====================================================================-->
+<!-- относится после child button -->
+<!-- <app-child>
+  <h1>Example with ng-content</h1>
+  <p style="background-color: chartreuse;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <div style="background-color: rgb(255, 208, 0);" someAttribute>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+  <article class="some-css-class" style="background-color: rgb(3, 161, 240);">Lorem ipsum dolor sit amet consectetur adipisicing elit.</article>
+</app-child> -->
+<!-- относится к ng-content-example -->
+<app-child>
+  <app-ng-content-example></app-ng-content-example>
+  <app-ng-content-example></app-ng-content-example>
+  <app-ng-content-example></app-ng-content-example>
+  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat quas, facere illo voluptate sapiente suscipit praesentium aliquam necessitatibus pariatur iste in facilis, id mollitia qui asperiores deserunt eos labore reprehenderit.
+</app-child>

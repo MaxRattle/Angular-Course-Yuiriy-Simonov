@@ -1,5 +1,23 @@
-<h2 [style.color]="childColorProps">Created Child component {{name}}</h2>
+<!-- <h2 [style.color]="childColorProps">Created Child component {{name}}</h2>
 <button (click)="changeName()">Change Name</button>
 <p>Child's name component: {{name}}</p>
-<button (click)="changeName()">Child Button</button>
-<p>----------------</p>
+<button (click)="changeName()">Child Button</button>-->
+<!-- <p>----------------</p>
+<header>
+    Header child
+    <ng-content select="[someAttribute]"></ng-content>
+</header>
+<hr>
+<main>
+    <p>Place where will content html-markup from child</p>
+    <ng-content select=".some-css-class"></ng-content>
+</main>
+<hr>
+<footer>
+    Footer child component
+    <ng-content select="p"></ng-content>
+</footer> -->
+<!-- <ng-content></ng-content> -->
+<!--обычный способ вставит из app-->
+<!-- далее относится к ng-content-example -->
+<ng-content select="app-ng-content-example"></ng-content>
