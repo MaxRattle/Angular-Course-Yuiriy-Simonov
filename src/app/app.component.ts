@@ -31,4 +31,14 @@ export class AppComponent {
   newArr = setTimeout(() => {
     this.ageOfUsers = [...this.ageOfUsers, { age: -999 }];
   }, 3000);
+
+  color = 'orange';
+  changeColor(newColor: string) {
+    this.color = newColor;
+  }
+
+  checkCurrentValue(event: Event) {
+    const target = event.target as HTMLInputElement;
+    console.log('e', target.value);
+  }
 }

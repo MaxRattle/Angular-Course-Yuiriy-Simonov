@@ -39,3 +39,4 @@ pipes-example - пользовательское название, pipe - наз
   newArr = setTimeout(() => {
     this.ageOfUsers = [...this.ageOfUsers, { age: -999 }];
   }, 3000);
+------
