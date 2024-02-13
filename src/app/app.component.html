@@ -220,3 +220,78 @@ name="name"
 <p [ngStyle]="{'font-size.px': 20}">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
 </p>
+<hr>
+<!-- новый синтаксис директив angular17 -->
+<div *ngFor="let item of arr">
+  <span>{{item}}</span>
+</div>
+
+<button (click)="toggler = !toggler">Button toggler Angular 17</button>
+<p *ngIf="toggler">New syntax Angular 17 directives</p>
+@if(toggler){
+  <p *ngIf="toggler" class="aqua">
+    Just text text with mixing syntax ditictives
+  </p>
+}@else if (true) {
+  <p class="pink">Text from 'else-if'</p>
+}@else {
+  <p class="blue">Text from 'else'</p>
+}
+<hr>
+@for (item of arr; track $index) {
+  <div class="aqua">
+    <span>{{item}}</span>
+  </div>
+}
+<hr>
+@for (item of arr; track item; let i = $index) {
+  <div class="aqua">
+    <span>{{item}}</span>
+  </div>
+}
+<hr>
+@for (item of arr; track item;) {
+  <div class="aqua">
+    <span>{{item}}</span>
+  </div>
+}
+<!-- объявление переменных отлич задает контекст, наприме во вложенном цикле -->
+@for (item of arr; track item; let parentIndex = $index) {
+  @for (item of arr; track item; let childIndex = $index) {
+  <div class="aqua">
+    <span>{{childIndex}}</span>
+  </div>
+  }
+}
+<!-- директива @empty -->
+<hr>
+@for (item of []; track item;) {
+  <div class="aqua">
+    <span>{{item}}</span>
+  </div>
+}@empty {
+  <p class="red">Empty array</p>
+}
+<hr>
+<!-- использование switch -->
+@for (item of arr; track $index){
+  <div class="pink">
+    @switch (item) {
+      @case (123) {
+        <i>{{item}}</i>
+      }
+      @case (true) {
+        <b *ngSwitch="true">{{item}}</b>
+      }
+      @default {
+        {{item}}
+      }
+    }
+
+<!-- <div [ngSwitch]="item" class="pink">
+    <i *ngSwitch="123">{{item}}</i>
+    <b *ngSwitch="true">{{item}}</b>
+    <span *ngSwitchDefault>{{item}}</span>
+</div> -->
+  </div>
+}
