@@ -22,12 +22,13 @@ export class AppComponent {
   someDate = new Date();
 
   ageOfUsers = [{ age: 20 }, { age: 27 }, { age: 21 }];
-  constructor() {
-    setTimeout(() => {
-      this.ageOfUsers.push({ age: 1999 });
-      this.ageOfUsers.push({ age: -1999 });
-    }, 3000);
-  }
+  // отключено для жизненного цикла
+  // constructor() {
+  //   setTimeout(() => {
+  //     this.ageOfUsers.push({ age: 1999 });
+  //     this.ageOfUsers.push({ age: -1999 });
+  //   }, 3000);
+  // }
   newArr = setTimeout(() => {
     this.ageOfUsers = [...this.ageOfUsers, { age: -999 }];
   }, 3000);
@@ -63,10 +64,22 @@ export class AppComponent {
     },
   };
   someTrackByMethod(index: number, item: any) {
-    console.log(1);
+    // console.log(1);
 
     return item;
   }
   colorClass = 'pink';
   colorClassObj = { color: 'pink', background: 'violet' };
+
+  //жизненный цикл
+  titleCicle: string = 'Header Cicle';
+  nameCicle: string = 'Name Cicle';
+  objectCicle = { age: 24 };
+  constructor() {
+    setTimeout(() => {
+      this.titleCicle = 'Changed titleCicle';
+      this.nameCicle = 'Changed nameCicle';
+      this.objectCicle = { ...this.objectCicle, age: 25 };
+    }, 3000);
+  }
 }

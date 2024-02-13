@@ -295,3 +295,15 @@ name="name"
 </div> -->
   </div>
 }
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<!-- из урока жизненый цикл -->
+@if (toggler) {
+  <app-child [title]="titleCicle" [name]="nameCicle" [obj]="objectCicle"></app-child>
+}
+<button (click)="toggler = !toggler">Toggle for ngDestroy</button>
