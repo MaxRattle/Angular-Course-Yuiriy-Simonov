@@ -51,4 +51,20 @@ export class AppComponent {
   toggler: boolean = true;
   str: string = '';
   arr: any[] = ['text', 123, true, ['abc', '369'], NaN];
+
+  obj: any = {
+    first: {
+      second: {
+        third: {
+          age: 24,
+          name: 'Maxim',
+        },
+      },
+    },
+  };
+  someTrackByMethod(index: number, item: any) {
+    console.log(1);
+
+    return item;
+  }
 }

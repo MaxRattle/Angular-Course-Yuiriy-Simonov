@@ -95,7 +95,7 @@ name="name"
   <p>{{someTextItem}}</p>
 </ng-template> -->
 <!-- относится к уроку по директива *ngFor, *ngIf, *ngSwitchCase -->
-<p *ngIf="toggler; then test else second">Toggler text</p>
+<!-- <p *ngIf="toggler; then test else second">Toggler text</p>
 <button (click)="toggler = !toggler">Button toggler</button>
 <ng-template #test>
   <p>Text from ng-template's element</p>
@@ -113,5 +113,80 @@ name="name"
   <i *ngSwitchCase="123">{{item}}</i>
   <b *ngSwitchCase="true">{{item}}</b>
   <span *ngSwitchDefault>{{item}}</span>
-</div>
+</div> -->
+<!-- относится к уроку по особенностям директив *ngFor, *ngIf, *ngSwitchCase -->
+<button (click)="toggler = !toggler">Button toggler specific</button>
+<p *ngIf="toggler">Specific directives</p>
 
+<ng-template [ngIf]='toggler' [ngIfThen]="second" [ngIfElse]="test">
+  <p>Specific directives paragraph</p>
+</ng-template>
+
+<ng-template #test>
+  <p>Specific text "test" from ng-tempalte</p>
+</ng-template>
+
+<ng-template #second>
+  <p>Specific text 'second' from ng-tempalte</p>
+</ng-template>
+<!-- второй вариант создания (нагроможденный и не используется особо) -->
+<hr>
+<hr>
+<hr>
+<div *ngFor="let item of arr; let evenItem = even; let currentIndex = index">
+  <span *ngIf="evenItem">{{item}}</span>
+  <span style="color: crimson;">{{currentIndex}}</span>
+</div>
+<hr>
+
+<ng-template ngFor let-item [ngForOf]="arr" let-evenItem="even" let-currentIndex="index">
+  <div>
+    <span *ngIf="evenItem">{{item}}</span>
+    <span style="color: crimson;">{{currentIndex}}</span>
+  </div>
+</ng-template>
+<!-- еще пример про две директивы будет ошибка-->
+<!-- <div *ngFor="let item of arr" *ngIf="true">
+  <span>{{item}}</span>
+</div> -->
+<!-- чтобы обойти ограничение двух директив -->
+<ng-template *ngIf="true">
+  <div *ngFor="let item of arr">
+    <span>{{item}}</span>
+  </div>
+</ng-template>
+
+<!-- привер с логическим оператором  -->
+<p *ngIf="toggler ? true : false">Some text One</p>
+<p *ngIf="toggler && true">Some text Two</p>
+<p *ngIf="toggler || false">Some text Three</p>
+
+<!-- пример с опциональной цепочкой -->
+<p *ngIf="arr?.[10]">Element exist in array: {{arr[0]}}</p>
+<p *ngIf="arr?.[0]">Element exist in array: {{arr[0]}}</p>
+<p *ngIf="arr?.[2]">Element exist in array: {{arr[0]}}</p>
+
+<!-- ключевое слово as -->
+<ng-container *ngIf="obj.first.second.third">
+  <p>Name: {{obj.first.second.third.name}}</p>
+  <p>Age: {{obj.first.second.third.age}}</p>
+</ng-container>
+<!-- лучший способ записи примера выше - через as -->
+<ng-container *ngIf="obj.first.second.third as info">
+  <p>Name: {{info.name}}</p>
+  <p>Age: {{info.age}}</p>
+</ng-container>
+
+<!-- в доки сказано что если огромное количество то лучше использовать trackby, в противном случае будет ререндер всего -->
+<div *ngFor="let item of arr; even as evenItem; index as currentIndex">
+  <span *ngIf="evenItem">{{item}}</span>
+  <span style="color: crimson;">{{currentIndex}}</span>
+</div>
+<!-- c использованием trackBy -->
+<div *ngFor="let item of arr; even as evenItem; trackBy: someTrackByMethod">
+  <span *ngIf="evenItem">{{item}}</span>
+</div>
+<!-- использование директив с пайпом -->
+<div *ngFor="let item of arr |slice: 1 : 4">
+  <span>{{item}}</span>
+</div>
