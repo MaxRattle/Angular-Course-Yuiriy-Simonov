@@ -67,4 +67,6 @@ export class AppComponent {
 
     return item;
   }
+  colorClass = 'pink';
+  colorClassObj = { color: 'pink', background: 'violet' };
 }

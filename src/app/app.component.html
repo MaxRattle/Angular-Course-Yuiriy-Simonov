@@ -190,3 +190,33 @@ name="name"
 <div *ngFor="let item of arr |slice: 1 : 4">
   <span>{{item}}</span>
 </div>
+
+<!-- из урока ngClass и ngStyle -->
+<!-- ngClass -->
+<p [ngClass]="'aqua'">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate minus quod, perferendis maxime explicabo?</p>
+<p ngClass="aqua red green">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate minus quod, perferendis maxime explicabo?</p>
+<p ngClass="{{colorClass}}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate minus quod, perferendis maxime explicabo?</p> <!--более распространено через поле компонента класса, т.к. ей проще управлять-->
+<p ngClass="{'green':true, colorClass: false}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate minus quod, perferendis maxime explicabo?</p>
+<!-- ngStyle -->
+<p style="background-color: darkblue">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
+<p [style]="'background-color: darkblue'">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
+
+<!-- <p ngStyle="background-color: darkblue">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p> -->
+<p [ngStyle]="{color: colorClass}">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
+<p [ngStyle]="colorClassObj">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
+<p [style]="colorClassObj">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
+<p [ngStyle]="{'font-size.px': 20}">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, ipsa.
+</p>
