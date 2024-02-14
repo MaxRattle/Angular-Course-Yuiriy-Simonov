@@ -307,3 +307,20 @@ name="name"
   <app-child [title]="titleCicle" [name]="nameCicle" [obj]="objectCicle"></app-child>
 }
 <button (click)="toggler = !toggler">Toggle for ngDestroy</button>
+<!-- далее идет урок по ViewChild и ViewChildren -->
+<hr>
+<p #paragraph>View paragraph</p>
+<ng-template #template>
+  <p>Content inside ng-template</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="template"></ng-container>
+<!-- <app-child #component>Lorem ipsum dolor sit amet consectetur.</app-child> -->
+<app-child>Lorem ipsum dolor sit amet consectetur.</app-child>
+<!-- с ViewChildren -->
+<hr>
+<p #paragraphChildren>ViewChildren paragraph</p>
+<ng-template #templateChildren>
+  <p>Content inside ng-template</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="templateChildren"></ng-container>
+<app-child>Lorem ipsum dolor sit amet consectetur.</app-child>

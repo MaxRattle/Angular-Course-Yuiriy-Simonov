@@ -1,4 +1,12 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  QueryList,
+  TemplateRef,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
+import { ChildComponent } from './components/child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -81,5 +89,44 @@ export class AppComponent {
       this.nameCicle = 'Changed nameCicle';
       this.objectCicle = { ...this.objectCicle, age: 25 };
     }, 3000);
+  }
+
+  titleView: string = 'Header View';
+  @ViewChild('paragraph')
+  paragraph!: ElementRef<HTMLParagraphElement>;
+  @ViewChild('template') template!: TemplateRef<HTMLParagraphElement>;
+  @ViewChild(ChildComponent) component!: ChildComponent;
+  // @ViewChild(TemplateRef) template!: TemplateRef<HTMLParagraphElement>;
+  // @ViewChild(ChildComponent) component!: ChildComponent;
+
+  // стаик задает View вывод без всех проверок // но это бед практис
+  // @ViewChild(ChildComponent, { static: true }) component!: ChildComponent;
+  // ngOnInit() {
+  //   console.log('component ngOnInit', this.component);
+  // }
+
+  @ViewChildren('paragraph')
+  paragraphChildren!: QueryList<ElementRef<HTMLParagraphElement>>;
+  @ViewChildren('template')
+  templateChildren!: QueryList<TemplateRef<HTMLParagraphElement>>;
+  @ViewChildren(ChildComponent) componentChildren!: QueryList<ChildComponent>;
+
+  ngAfterViewInit() {
+    console.log('paragraph', this.paragraph);
+    console.log('template', this.template);
+    console.log('component', this.component);
+
+    //не стоит менять таким образом DOM
+    this.paragraph.nativeElement.textContent = 'new text';
+    this.component.childNameView = 'child renamed';
+
+    // ViewChildren
+    console.log('paragraphChildren', this.paragraphChildren);
+    console.log('templateChildren', this.templateChildren);
+    console.log('componentChildren', this.componentChildren);
+
+    //не стоит менять таким образом DOM
+    // this.paragraphChildren.nativeElement.textContent = 'new text';
+    // this.componentChildren.childNameView = 'children renamed';
   }
 }

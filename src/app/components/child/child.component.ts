@@ -68,4 +68,7 @@ export class ChildComponent {
   ngOnDestroy(): void {
     console.log('%c ngOnDestroy', 'color: red');
   }
+
+  childView: string = 'child View content';
+  childNameView: string = 'child Name View content';
 }
