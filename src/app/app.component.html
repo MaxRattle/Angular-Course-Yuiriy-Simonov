@@ -324,3 +324,21 @@ name="name"
 </ng-template>
 <ng-container *ngTemplateOutlet="templateChildren"></ng-container>
 <app-child>Lorem ipsum dolor sit amet consectetur.</app-child>
+<!-- далее урок ContenChild ContentChildren -->
+<hr>
+<hr>
+<app-child #paragraphContent>Text for ContendChild</app-child>
+<hr>
+<app-child>
+  <p #tag>Paragraph Content</p>
+</app-child>
+<hr>
+<app-child>
+  <ng-template #templateContent>
+    <p>Element from ng-tempalte</p>
+  </ng-template>
+</app-child>
+<hr>
+<app-child>
+  <app-ng-content-example>Component ng-content-example</app-ng-content-example>
+</app-child>

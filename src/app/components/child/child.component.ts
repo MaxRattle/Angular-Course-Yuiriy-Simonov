@@ -1,9 +1,10 @@
 import {
   Component,
+  ContentChild,
+  ElementRef,
   EventEmitter,
   Input,
   Output,
-  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 
@@ -71,4 +72,19 @@ export class ChildComponent {
 
   childView: string = 'child View content';
   childNameView: string = 'child Name View content';
+
+  @ContentChild('tag') paragraphContent!: ElementRef<HTMLParagraphElement>;
+  @ContentChild('templateContent')
+  templateContent!: TemplateRef<HTMLParagraphElement>;
+  @ContentChild(NgContentExampleComponent)
+  componentContent!: NgContentExampleComponent;
+
+  ngAfterContentInitContent() {
+    this.paragraphContent &&
+      console.log('paragraphContent', this.paragraphContent);
+    this.templateContent &&
+      console.log('templateContent', this.templateContent);
+    this.componentContent &&
+      console.log('componentContent', this.componentContent);
+  }
 }
